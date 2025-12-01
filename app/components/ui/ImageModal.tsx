@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { ImageSet } from "../../types";
 
 interface ImageModalProps {
@@ -75,7 +76,7 @@ export default function ImageModal({
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm"
+        className="fixed inset-0 z-100 bg-black/90 backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -189,17 +190,19 @@ export default function ImageModal({
             )}
 
             {/* HD Image */}
-            <motion.img
-              src={currentImage.hd}
-              alt={currentImage.alt || `Image ${currentIndex + 1}`}
-              className={`max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg shadow-2xl ${
-                isLoading ? "opacity-0" : "opacity-100"
-              }`}
-              onLoad={handleImageLoad}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isLoading ? 0 : 1 }}
-              transition={{ duration: 0.3 }}
-            />
+            <motion.div className="relative max-w-full max-h-[85vh]">
+              <Image
+                src={currentImage.hd}
+                alt={currentImage.alt || `Image ${currentIndex + 1}`}
+                width={1920}
+                height={1080}
+                className={`max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg shadow-2xl ${
+                  isLoading ? "opacity-0" : "opacity-100"
+                }`}
+                onLoad={handleImageLoad}
+                unoptimized
+              />
+            </motion.div>
 
             {/* Image Counter */}
             {images.length > 1 && (
@@ -238,7 +241,7 @@ export default function ImageModal({
             {images.map((image, index) => (
               <motion.button
                 key={index}
-                className={`relative w-16 h-12 flex-shrink-0 rounded overflow-hidden border-2 transition-colors ${
+                className={`relative w-16 h-12 shrink-0 rounded overflow-hidden border-2 transition-colors ${
                   index === currentIndex
                     ? "border-white"
                     : "border-transparent hover:border-white/50"
@@ -251,10 +254,13 @@ export default function ImageModal({
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <img
+                <Image
                   src={image.compressed}
                   alt={`Thumbnail ${index + 1}`}
+                  width={64}
+                  height={48}
                   className="w-full h-full object-cover"
+                  unoptimized
                 />
                 {index === currentIndex && (
                   <motion.div

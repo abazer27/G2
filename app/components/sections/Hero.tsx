@@ -7,11 +7,11 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-mono-light overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-custom-lightest/50 to-custom-lighter/30"></div>
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-custom-lightest/50 to-custom-lighter/30"></div>
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
-            className="text-5xl md:text-7xl font-bold text-custom-dark mb-6 font-poppins"
+            className="text-4xl md:text-6xl font-bold text-custom-dark mb-6 font-poppins"
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }}
@@ -26,7 +26,7 @@ export default function Hero() {
                 ease: [0.6, -0.05, 0.01, 0.99],
               }}
             >
-              Designing the
+              Contemporary Architect 
             </motion.span>
             <motion.span
               className="block text-custom-medium"
@@ -38,7 +38,19 @@ export default function Hero() {
                 ease: [0.6, -0.05, 0.01, 0.99],
               }}
             >
-              Future
+               &
+            </motion.span>
+            <motion.span
+              className="inline-block"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.6,
+                ease: [0.6, -0.05, 0.01, 0.99],
+              }}
+            >
+              Spatial Thinker
             </motion.span>
           </motion.h1>
 
@@ -52,8 +64,7 @@ export default function Hero() {
               ease: [0.6, -0.05, 0.01, 0.99],
             }}
           >
-            We create architectural experiences that inspire, innovate, and
-            transform communities through thoughtful design.
+            Let’s build timeless simplicity.
           </motion.p>
 
           <motion.div
