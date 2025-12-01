@@ -1,0 +1,41 @@
+/* Image Modal Styles */
+.image-modal-overlay {
+  backdrop-filter: blur(8px);
+}
+
+.image-modal-container {
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Custom scrollbar for thumbnail strip */
+.image-modal-thumbnails::-webkit-scrollbar {
+  height: 4px;
+}
+
+.image-modal-thumbnails::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.image-modal-thumbnails::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.image-modal-thumbnails::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Loading animation */
+@keyframes imageModalSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.image-modal-loading {
+  animation: imageModalSpin 1s linear infinite;
+}

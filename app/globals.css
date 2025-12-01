@@ -1,26 +1,94 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Custom monochromatic color palette */
+  --color-dark: #1a1a1a;
+  --color-medium: #4a4a4a;
+  --color-light: #7a7a7a;
+  --color-lighter: #b0b0b0;
+  --color-lightest: #f5f5f5;
+
+  --background: var(--color-lightest);
+  --foreground: var(--color-dark);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-roboto);
+  --font-mono: var(--font-roboto);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Custom color utilities */
+  --color-primary: var(--color-medium);
+  --color-primary-hover: var(--color-dark);
+  --color-secondary: var(--color-light);
+  --color-accent: var(--color-lighter);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-roboto), sans-serif;
+}
+
+/* Typography System */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+}
+
+p,
+span,
+div,
+a,
+button,
+input,
+textarea,
+label {
+  font-family: var(--font-roboto), sans-serif;
+}
+
+/* Custom utility classes for your color palette */
+.bg-custom-dark {
+  background-color: #1a1a1a;
+}
+.bg-custom-medium {
+  background-color: #4a4a4a;
+}
+.bg-custom-light {
+  background-color: #7a7a7a;
+}
+.bg-custom-lighter {
+  background-color: #b0b0b0;
+}
+.bg-custom-lightest {
+  background-color: #f5f5f5;
+}
+
+.text-custom-dark {
+  color: #1a1a1a;
+}
+.text-custom-medium {
+  color: #4a4a4a;
+}
+.text-custom-light {
+  color: #7a7a7a;
+}
+.text-custom-lighter {
+  color: #b0b0b0;
+}
+
+.border-custom-light {
+  border-color: #7a7a7a;
+}
+.border-custom-lighter {
+  border-color: #b0b0b0;
+}
+.border-custom-medium {
+  border-color: #4a4a4a;
 }
