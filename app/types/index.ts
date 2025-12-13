@@ -25,13 +25,6 @@ export interface Project {
   slug: string;
 }
 
-export interface Service {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
-}
-
 export interface Testimonial {
   id: string;
   name: string;
@@ -53,6 +46,13 @@ export interface ContactInfo {
   };
 }
 
+export interface Service {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+}
+
 export interface AboutContent {
   hero: {
     title: string;
@@ -68,15 +68,11 @@ export interface AboutContent {
   whatWeDo: {
     title: string;
     services: {
+      id: string;
       title: string;
       description: string;
-    }[];
-  };
-  approach: {
-    title: string;
-    values: {
-      title: string;
-      description: string;
+      icon: string;
+      points: string[];
     }[];
   };
 }

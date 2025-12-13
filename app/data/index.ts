@@ -454,38 +454,97 @@ export const aboutContent: AboutContent = {
     title: "What We Do",
     services: [
       {
-        title: "Residential Design",
-        description: "Custom homes and residential developments",
+        id: "1",
+        title: "Perencanaan & Desain Arsitektur",
+        description: "Menyediakan layanan perancangan bangunan dari konsep hingga gambar kerja, Fokus pada desain kontekstual, tropis kontemporer, fungsional, dan estetis.",
+        icon: "PencilRuler",
+        points: [
+          "Hunian pribadi",
+          "Villa",
+          "Komersial & retail",
+          "Renovasi dan perluasan bangunan"
+        ],
       },
       {
-        title: "Commercial Architecture",
+        id: "2",
+        title: "Desain Interior",
         description:
-          "Office buildings, retail spaces, and mixed-use developments",
+          "Merancang interior yang selaras dengan karakter bangunan dan kebutuhan pengguna, Dengan pendekatan estetika yang bersih, material natural, dan tata ruang efisien.",
+        icon: "Home",
+        points: [
+          "Perumahan",
+          "Kantor",
+          "Ruang komersial",
+          "Hospitality"
+        ],
       },
       {
-        title: "Urban Planning",
-        description: "Community development and sustainable urban design",
+        id: "3",
+        title: "Konsep Fasade & Re-Design",
+        description: "Memberikan solusi tampak bangunan yang lebih modern, adaptif, dan sesuai identitas klien",
+        icon: "Layers",
+        points: [
+          "Pembaruan fasade (re-facing)",
+          "Desain fasade baru untuk bangunan lama",
+          "Studi bentuk dan estetika visual"
+        ],
       },
       {
-        title: "Interior Design",
-        description: "Complete interior design services",
-      },
-    ],
-  },
-  approach: {
-    title: "Our Approach",
-    values: [
-      {
-        title: "Design Excellence",
-        description: "Creating spaces that are both beautiful and functional",
+        id: "4",
+        title: "Masterplan & Site Planning",
+        description: "Penataan kawasan skala kecil hingga menengah, Fokus pada sirkulasi, landscape, dan hubungan antar ruang luar–dalam.",
+        icon: "Map",
+        points: [
+          "Villa complex",
+          "Cluster perumahan",
+          "Kawasan komersial"
+        ],
       },
       {
-        title: "Sustainability Focus",
-        description: "Environmentally responsible design practices",
+        id: "5",
+        title: "3D Visualization & Rendering",
+        description: "Menyajikan visualisasi 3D realistis yang membantu klien memahami desain dengan lebih jelas",
+        icon: "Box",
+        points: [
+          "Exterior rendering",
+          "Interior rendering",
+          "Animasi dan walkthrough"
+        ],
       },
       {
-        title: "Client Collaboration",
-        description: "Working closely with clients to realize their vision",
+        id: "6",
+        title: "Gambar Kerja & Dokumen Teknis",
+        description: "Menyusun dokumen teknis yang lengkap dan dapat digunakan oleh kontraktor untuk proses pembangunan, penekanan pada akurasi dan kejelasan informasi.",
+        icon: "FileText",
+        points: [
+          "Gambar arsitektur detail",
+          "Detail konstruksi",
+          "Rencana material & spesifikasi teknis"
+        ],
+      },
+      {
+        id: "7",
+        title: "Pengawasan & Koordinasi Lapangan",
+        description: "Mengawal desain agar terbangun sesuai konsep dan standar kualitas studio",
+        icon: "ClipboardCheck",
+        points: [
+          "Site visit berkala",
+          "Evaluasi progres",
+          "Koordinasi dengan kontraktor dan vendor",
+          "Penyesuaian teknis di lapangan jika diperlukan"
+        ],
+      },
+      {
+        id: "8",
+        title: "Konsultasi Arsitektur",
+        description: "Memberikan arahan profesional bagi klien yang membutuhkan panduan awal",
+        icon: "MessageSquare",
+        points: [
+          "Studi kelayakan lahan",
+          "Estimasi kebutuhan ruang",
+          "Penilaian potensi desain",
+          "Solusi renovasi dan perbaikan fungsi"
+        ],
       },
     ],
   },

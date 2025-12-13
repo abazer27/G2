@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import * as LucideIcons from "lucide-react";
 import { aboutContent } from "../data";
 
 const containerVariants = {
@@ -26,151 +27,148 @@ const itemVariants = {
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.95, y: 20 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.6, -0.05, 0.01, 0.99] as const,
-    },
-  },
-};
-
 export default function AboutPage() {
   return (
-    <div className="pt-20 bg-gradient-mono-soft">
-      <div className="container mx-auto px-4 py-16">
-        <motion.div
-          className="max-w-4xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.h1
-            className="text-4xl font-bold text-custom-dark mb-8 font-poppins"
-            variants={itemVariants}
-          >
-            {aboutContent.hero.title}
-          </motion.h1>
-
+    <div className="pt-20 bg-white">
+      {/* About G2 Architect Section */}
+      <section className="section-spacing">
+        <div className="container mx-auto px-4">
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12"
-            variants={itemVariants}
+            className="max-w-6xl mx-auto"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
           >
-            <motion.div variants={itemVariants}>
-              <motion.h2
-                className="text-2xl font-semibold text-custom-dark mb-6 font-poppins"
-                variants={itemVariants}
-              >
-                {aboutContent.story.title}
-              </motion.h2>
-              {aboutContent.story.paragraphs.map((paragraph, index) => (
-                <motion.p
-                  key={index}
-                  className="text-custom-medium mb-6 font-roboto"
-                  variants={itemVariants}
-                >
-                  {paragraph}
-                </motion.p>
-              ))}
-
-              <motion.h3
-                className="text-xl font-semibold text-custom-dark mb-4 font-poppins"
-                variants={itemVariants}
-              >
-                {aboutContent.mission.title}
-              </motion.h3>
-              <motion.p
-                className="text-custom-medium mb-6 font-roboto"
-                variants={itemVariants}
-              >
-                {aboutContent.mission.content}
-              </motion.p>
+            {/* Main Title with Divider */}
+            <motion.div className="mb-16" variants={itemVariants}>
+              <h1 className="text-custom-dark mb-3 font-poppins tracking-tight">
+                {aboutContent.hero.title}
+              </h1>
+              <div className="divider-thin w-24" />
+              <p className="subheading text-custom-medium mt-6 max-w-2xl">
+                Human-centered design rooted in context and clarity.
+              </p>
             </motion.div>
 
-            <motion.div variants={itemVariants}>
-              <motion.div
-                className="bg-custom-lighter p-8 rounded-lg"
-                variants={cardVariants}
-                whileHover={{ scale: 1.02, y: -5 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <motion.h3
-                  className="text-xl font-semibold text-custom-dark mb-6"
+            {/* Editorial Two-Column Layout */}
+            <motion.div
+              className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24"
+              variants={itemVariants}
+            >
+              {/* Our Story */}
+              <motion.div variants={itemVariants}>
+                <h2 className="text-custom-dark mb-8 font-poppins">
+                  {aboutContent.story.title}
+                </h2>
+                <div className="space-y-6">
+                  {aboutContent.story.paragraphs.map((paragraph, index) => (
+                    <motion.p
+                      key={index}
+                      className="text-custom-medium font-roboto"
+                      variants={itemVariants}
+                    >
+                      {paragraph}
+                    </motion.p>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Our Mission */}
+              <motion.div variants={itemVariants}>
+                <h2 className="text-custom-dark mb-8 font-poppins">
+                  {aboutContent.mission.title}
+                </h2>
+                <motion.p
+                  className="text-custom-medium font-roboto"
                   variants={itemVariants}
                 >
-                  {aboutContent.whatWeDo.title}
-                </motion.h3>
-                <ul className="space-y-4">
-                  {aboutContent.whatWeDo.services.map((service, index) => (
-                    <motion.li
-                      key={index}
-                      className="flex items-start"
-                      variants={itemVariants}
-                      whileHover={{ x: 5 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 20,
-                      }}
-                    >
-                      <div className="w-2 h-2 bg-custom-medium rounded-full mt-2 mr-3 shrink-0"></div>
-                      <div>
-                        <h4 className="font-semibold text-custom-dark">
-                          {service.title}
-                        </h4>
-                        <p className="text-custom-medium text-sm">
-                          {service.description}
-                        </p>
-                      </div>
-                    </motion.li>
-                  ))}
-                </ul>
+                  {aboutContent.mission.content}
+                </motion.p>
               </motion.div>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
 
-          <motion.div className="mt-16" variants={itemVariants}>
-            <motion.h2
-              className="text-2xl font-semibold text-custom-dark mb-8"
-              variants={itemVariants}
+      {/* What We Do Section */}
+      <section className="section-spacing bg-custom-lightest">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Title */}
+            <motion.div 
+              className="mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              {aboutContent.approach.title}
-            </motion.h2>
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-              variants={containerVariants}
-            >
-              {aboutContent.approach.values.map((value, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  variants={cardVariants}
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <motion.div
-                    className="w-16 h-16 bg-custom-light rounded-full flex items-center justify-center mx-auto mb-4"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className="w-8 h-8 bg-custom-medium rounded"></div>
-                  </motion.div>
-                  <h3 className="text-lg font-semibold text-custom-dark mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-custom-medium text-sm">
-                    {value.description}
-                  </p>
-                </motion.div>
-              ))}
+              <h2 className="text-custom-dark mb-3 font-poppins tracking-tight">
+                What We Do
+              </h2>
+              <div className="divider-thin w-24" />
             </motion.div>
-          </motion.div>
-        </motion.div>
-      </div>
+
+            {/* Services Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {aboutContent.whatWeDo.services.map((service, index) => {
+                // Get the icon component dynamically
+                const IconComponent = service.icon ? LucideIcons[service.icon as keyof typeof LucideIcons] as React.ComponentType<{ className?: string, strokeWidth?: number }> : null;
+
+                return (
+                  <motion.div 
+                    key={service.id} 
+                    className="group bg-white border border-custom-border rounded-lg transition-elegant hover:border-custom-medium cursor-pointer overflow-hidden h-full flex flex-col"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ y: -4 }}
+                  >
+                    <div className="p-8 flex-1 flex flex-col">
+                      {/* Icon Container - Outline Style */}
+                      <div className="mb-6">
+                        <div className="w-11 h-11 bg-custom-lighter rounded-lg flex items-center justify-center transition-elegant group-hover:bg-custom-light">
+                          {IconComponent && (
+                            <IconComponent 
+                              className="w-5 h-5 text-custom-medium" 
+                              strokeWidth={1.5}
+                            />
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="font-poppins text-custom-dark mb-3 leading-snug">
+                        {service.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-custom-medium font-roboto text-[13.5px] leading-relaxed mb-4 flex-1">
+                        {service.description}
+                      </p>
+
+                      {/* Points List */}
+                      {service.points && service.points.length > 0 && (
+                        <ul className="space-y-2 mt-auto pt-4 border-t border-custom-light">
+                          {service.points.map((point, idx) => (
+                            <li 
+                              key={idx} 
+                              className="flex items-start text-[13px] text-custom-medium"
+                            >
+                              <span className="mr-2 text-custom-medium">–</span>
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

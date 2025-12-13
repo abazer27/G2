@@ -18,49 +18,49 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-custom-lightest/95 backdrop-blur-sm border-b border-custom-lighter"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-custom-light"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4 py-4">
-        <nav className="flex items-center justify-between">
-          <Link href="/" className=" flex items-center text-lg md:text-2xl font-bold text-custom-dark font-poppins"
+      <div className="container mx-auto px-6 py-3">
+        <nav className="flex items-center justify-between h-14">
+          <Link href="/" className="flex items-center text-lg md:text-xl font-semibold text-custom-dark font-poppins tracking-tight hover:opacity-80 transition-opacity"
           >
             <Image
               src="/images/logo/logo2.png"
               alt="G2 Architect"
-              width={120}
-              height={48}
-              className="h-12 w-auto"
+              width={100}
+              height={40}
+              className="h-10 w-auto"
               priority
               unoptimized
             />
             Architect
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             <Link
               href="/"
-              className="text-custom-medium hover:text-custom-dark transition-colors font-medium font-roboto"
+              className="nav-link text-custom-medium hover:text-custom-dark transition-elegant"
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="text-custom-medium hover:text-custom-dark transition-colors font-medium font-roboto"
+              className="nav-link text-custom-medium hover:text-custom-dark transition-elegant"
             >
               About
             </Link>
             <Link
               href="/projects"
-              className="text-custom-medium hover:text-custom-dark transition-colors font-medium font-roboto"
+              className="nav-link text-custom-medium hover:text-custom-dark transition-elegant"
             >
               Projects
             </Link>
             <Link
               href="/contact"
-              className="text-custom-medium hover:text-custom-dark transition-colors font-medium font-roboto"
+              className="nav-link text-custom-medium hover:text-custom-dark transition-elegant"
             >
               Contact
             </Link>

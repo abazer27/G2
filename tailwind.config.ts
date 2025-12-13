@@ -16,11 +16,12 @@ export default {
       },
       colors: {
         custom: {
-          dark: "#1a1a1a",
-          medium: "#4a4a4a",
-          light: "#7a7a7a",
-          lighter: "#b0b0b0",
-          lightest: "#f5f5f5",
+          dark: "#111111",
+          medium: "#666666",
+          light: "#E5E5E5",
+          lighter: "#F4F4F4",
+          lightest: "#FAFAFA",
+          border: "#EAEAEA",
         },
       },
       backgroundImage: {
