@@ -15,7 +15,8 @@ export interface Project {
   year: number;
   location: string;
   client: string;
-  area: string;
+  landArea: string;
+  buildingArea: string;
   status: "completed" | "in-progress" | "concept";
   images: ImageSet[];
   thumbnailImage: ImageSet;

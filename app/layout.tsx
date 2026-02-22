@@ -18,9 +18,9 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "G2 Architect - Creating Exceptional Architectural Experiences",
+  title: "Garis 2 Architect - Creating Exceptional Architectural Experiences",
   description:
-    "G2 Architect specializes in residential, commercial, and urban planning projects. We create architectural experiences that inspire, innovate, and transform communities through thoughtful design.",
+    "Garis 2 Architect specializes in residential, commercial, and urban planning projects. We create architectural experiences that inspire, innovate, and transform communities through thoughtful design.",
 };
 
 export default function RootLayout({

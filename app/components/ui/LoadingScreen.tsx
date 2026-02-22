@@ -40,7 +40,7 @@ export default function LoadingScreen({ isLoading }: LoadingScreenProps) {
           <div className="w-40 h-40 relative bg-white rounded-2xl shadow-2xl flex items-center justify-center p-4">
             <Image
               src="/images/logo/logo.png"
-              alt="G2 Architect"
+              alt="Garis 2 Architect"
               width={160}
               height={160}
               className="w-full h-full object-contain"

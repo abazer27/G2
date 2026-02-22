@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4 font-poppins">
-              G2 Architect
+              Garis 2 Architect
             </h3>
             <p className="text-custom-lighter mb-4 font-roboto">
               Creating exceptional architectural experiences that blend
@@ -60,7 +60,7 @@ export default function Footer() {
 
         <div className="border-t border-custom-medium mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-custom-lighter text-sm font-roboto">
-            © 2024 G2 Architect. All rights reserved.
+            © 2024 Garis 2 Architect. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             {contactInfo.socialMedia.linkedin && (

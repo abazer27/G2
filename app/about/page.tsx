@@ -30,7 +30,7 @@ const itemVariants = {
 export default function AboutPage() {
   return (
     <div className="pt-20 bg-white">
-      {/* About G2 Architect Section */}
+      {/* About Garis 2 Architect Section */}
       <section className="section-spacing">
         <div className="container mx-auto px-4">
           <motion.div

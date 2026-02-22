@@ -61,7 +61,7 @@ export default function ContactPage() {
 
   const generateWhatsAppURL = () => {
     // Format the message for WhatsApp
-    const whatsappMessage = `Hello! New contact form submission from G2 Architect website:
+    const whatsappMessage = `Hello! New contact form submission from Garis 2 Architect website:
 
 *Contact Details:*
 Name: ${formData.name}
@@ -72,9 +72,9 @@ Phone: ${formData.phone}
 ${formData.message}
 
 ---
-Sent from G2 Architect Contact Form Website.`;
+Sent from Garis 2 Architect Contact Form Website.`;
 
-    const whatsappNumber = "6287787665872";
+    const whatsappNumber = "6287856181415";
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
   };
 
@@ -220,7 +220,7 @@ Sent from G2 Architect Contact Form Website.`;
                   htmlFor="name"
                   className="block text-sm font-medium text-custom-dark mb-2"
                 >
-                  Name
+                  Your Name
                 </label>
                 <motion.input
                   type="text"
@@ -238,7 +238,7 @@ Sent from G2 Architect Contact Form Website.`;
                   htmlFor="email"
                   className="block text-sm font-medium text-custom-dark mb-2"
                 >
-                  Email
+                  Your Email
                 </label>
                 <motion.input
                   type="email"
@@ -256,7 +256,7 @@ Sent from G2 Architect Contact Form Website.`;
                   htmlFor="phone"
                   className="block text-sm font-medium text-custom-dark mb-2"
                 >
-                  Phone Number
+                  Your Phone Number
                 </label>
                 <motion.input
                   type="tel"

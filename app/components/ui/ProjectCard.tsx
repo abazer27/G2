@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { ArrowUpRight, Calendar } from "lucide-react";
 import { ImageSet } from "../../types";
+import { cloudinaryImageLoader, getShimmerDataURL } from "../../lib/image";
 
 interface ProjectCardProps {
   title: string;
@@ -22,47 +23,52 @@ export default function ProjectCard({
   image,
   slug,
 }: ProjectCardProps) {
+  const blurDataURL = getShimmerDataURL(800, 600);
+
   return (
-    <motion.div
-      className="bg-white rounded-lg shadow-lg overflow-hidden group cursor-pointer border border-custom-lighter hover:shadow-2xl transition-shadow duration-300"
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.3 }}
+    <Link
+      href={`/projects/${slug}`}
+      className="group block cursor-pointer rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
-      <Link href={`/projects/${slug}`}>
-        <div className="relative h-64 overflow-hidden">
-          <div className="w-full h-full bg-custom-lighter group-hover:scale-110 transition-transform duration-500">
-            <Image
-              src={image.compressed}
-              alt={image.alt || title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
-          {/* Gradient overlay on hover */}
-          <div className="absolute inset-0 bg-linear-to-t from-custom-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="relative aspect-4/3 overflow-hidden rounded-t-2xl bg-neutral-100">
+        <Image
+          src={image.compressed}
+          alt={image.alt || title}
+          fill
+          loader={cloudinaryImageLoader}
+          placeholder="blur"
+          blurDataURL={blurDataURL}
+          className="object-cover transition duration-500 ease-out group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/10 to-transparent opacity-95 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100" />
+      </div>
+
+      <div className="space-y-4 p-6">
+        <div className="flex items-center justify-between gap-3">
+          <span className="rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">
+            {category}
+          </span>
+          <span className="inline-flex items-center gap-1.5 text-sm text-neutral-500">
+            <Calendar className="h-4 w-4 opacity-70" />
+            {year}
+          </span>
         </div>
 
-        <div className="p-6">
-          <div className="flex justify-between items-start mb-2">
-            <h3 className="text-xl font-semibold text-custom-dark group-hover:text-custom-medium transition-colors">
-              {title}
-            </h3>
-            <span className="text-sm text-custom-light">{year}</span>
-          </div>
-
-          <p className="text-custom-medium mb-4 line-clamp-2">{description}</p>
-
-          <div className="flex items-center justify-between">
-            <span className="px-3 py-1 bg-custom-dark text-white text-sm rounded-full shadow-md">
-              {category}
-            </span>
-            <span className="text-custom-medium group-hover:text-custom-dark transition-colors text-sm font-medium">
-              View Project →
-            </span>
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-neutral-900">{title}</h3>
+          <div className="h-10 overflow-hidden">
+            <p className="text-sm text-neutral-500 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 -translate-y-1">
+              {description}
+            </p>
           </div>
         </div>
-      </Link>
-    </motion.div>
+
+        <div className="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-900 transition-colors duration-300 group-hover:text-neutral-700">
+          View Project
+          <ArrowUpRight className="h-4 w-4 opacity-70 transition-transform duration-300 group-hover:translate-x-1" />
+        </div>
+      </div>
+    </Link>
   );
 }

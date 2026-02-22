@@ -3,135 +3,126 @@
 import { motion } from "framer-motion";
 import ProjectCard from "../components/ui/ProjectCard";
 import { projects } from "../data";
+import { Project } from "../types";
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
+      staggerChildren: 0.12,
+      delayChildren: 0.08,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.9 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: {
       duration: 0.5,
-      ease: [0.6, -0.05, 0.01, 0.99] as const,
+      ease: "easeOut" as const,
     },
   },
 };
 
-export default function ProjectsPage() {
-  // Separate projects by status
-  const ongoingProjects = projects.filter(p => p.status === "in-progress");
-  const completedProjects = projects.filter(p => p.status === "completed");
+interface ProjectSectionProps {
+  title: string;
+  subtitle: string;
+  projectsList: Project[];
+  withAccent?: boolean;
+}
+
+function ProjectSection({
+  title,
+  subtitle,
+  projectsList,
+  withAccent = false,
+}: ProjectSectionProps) {
+  if (projectsList.length === 0) {
+    return null;
+  }
 
   return (
-    <div className="pt-20 bg-gradient-mono-soft">
-      <div className="container mx-auto px-4 py-16">
+    <section className="space-y-8">
+      <div className="space-y-3">
+        <p className="text-sm uppercase tracking-widest text-neutral-500">
+          {subtitle}
+        </p>
+        <h2
+          className={`text-3xl font-semibold tracking-tight text-neutral-900 lg:text-4xl ${
+            withAccent
+              ? "relative pl-4 before:absolute before:left-0 before:top-1/2 before:h-6 before:w-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-900 before:content-['']"
+              : ""
+          }`}
+        >
+          {title}
+        </h2>
+      </div>
+
+      <motion.div
+        className="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+      >
+        {projectsList.map((project) => (
+          <motion.div key={project.id} variants={itemVariants}>
+            <ProjectCard
+              title={project.title}
+              description={project.shortDescription}
+              category={project.category}
+              year={project.year}
+              image={project.thumbnailImage}
+              slug={project.slug}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  );
+}
+
+export default function ProjectsPage() {
+  const ongoingProjects = projects.filter((project) => project.status === "in-progress");
+  const completedProjects = projects.filter((project) => project.status === "completed");
+
+  return (
+    <div className="bg-white pt-20">
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <motion.h1
-          className="text-4xl font-bold text-custom-dark mb-12 font-poppins"
+          className="mb-3 text-3xl font-semibold tracking-tight text-neutral-900 lg:text-4xl"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.6,
-            ease: [0.6, -0.05, 0.01, 0.99] as const,
-          }}
+          transition={{ duration: 0.5 }}
         >
           Projects
         </motion.h1>
+        <motion.p
+          className="mb-14 text-sm uppercase tracking-widest text-neutral-500"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          Selected architectural works
+        </motion.p>
 
-        {/* Ongoing Projects Section */}
-        {ongoingProjects.length > 0 && (
-          <motion.div
-            className="mb-16"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <motion.h2
-              className="text-2xl font-semibold text-custom-dark mb-6 font-poppins"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              Ongoing Projects
-            </motion.h2>
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {ongoingProjects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  variants={itemVariants}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <ProjectCard
-                    title={project.title}
-                    description={project.shortDescription}
-                    category={project.category}
-                    year={project.year}
-                    image={project.thumbnailImage}
-                    slug={project.slug}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        )}
-
-        {/* Completed Projects Section */}
-        {completedProjects.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            <motion.h2
-              className="text-2xl font-semibold text-custom-dark mb-6 font-poppins"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              Completed Projects
-            </motion.h2>
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {completedProjects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  variants={itemVariants}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <ProjectCard
-                    title={project.title}
-                    description={project.shortDescription}
-                    category={project.category}
-                    year={project.year}
-                    image={project.thumbnailImage}
-                    slug={project.slug}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        )}
+        <div className="space-y-16">
+          <ProjectSection
+            title="Ongoing Projects"
+            subtitle="In Progress"
+            projectsList={ongoingProjects}
+            withAccent
+          />
+          <ProjectSection
+            title="Completed Projects"
+            subtitle="Delivered"
+            projectsList={completedProjects}
+          />
+        </div>
       </div>
     </div>
   );

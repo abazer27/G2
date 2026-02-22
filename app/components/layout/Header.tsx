@@ -28,15 +28,14 @@ export default function Header() {
           <Link href="/" className="flex items-center text-lg md:text-xl font-semibold text-custom-dark font-poppins tracking-tight hover:opacity-80 transition-opacity"
           >
             <Image
-              src="/images/logo/logo2.png"
-              alt="G2 Architect"
+              src="/images/logo/hero.jpg"
+              alt="Garis 2 Architect"
               width={100}
               height={40}
               className="h-10 w-auto"
               priority
               unoptimized
             />
-            Architect
           </Link>
 
           <div className="hidden md:flex items-center space-x-10">
