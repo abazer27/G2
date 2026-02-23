@@ -409,7 +409,7 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const contactInfo: ContactInfo = {
-  email: "hendri@Garis2architect.com",
+  email: "Garis2architect@gmail.com",
   phone: "+62 878 5618 1415",
   address: "Premiere estate3, Cibubur, Bekasi",
   socialMedia: {
