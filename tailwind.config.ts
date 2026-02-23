@@ -11,6 +11,7 @@ export default {
       fontFamily: {
         poppins: ["var(--font-poppins)", "sans-serif"],
         roboto: ["var(--font-roboto)", "sans-serif"],
+        futura: ["var(--font-futura)", "sans-serif"],
         heading: ["var(--font-poppins)", "sans-serif"],
         body: ["var(--font-roboto)", "sans-serif"],
       },

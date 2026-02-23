@@ -116,7 +116,7 @@ export default function Hero() {
         >
           <Image
             src="/images/logo/logo.png"
-            alt="Garis 2 Architect"
+            alt="Garis2Architect"
             width={600}
             height={600}
             className="w-[600px] h-[600px] object-contain"

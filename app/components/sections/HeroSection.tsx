@@ -36,7 +36,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Garis 2
+          Garis2Architect
         </motion.p>
 
         {/* Headline */}
@@ -46,9 +46,9 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <span className="block">Contemporary Architect</span>
-          <span className="block text-neutral-400">&</span>
-          <span className="block">Spatial Thinker</span>
+          <span className="block font-futura font-bold">Contemporary Architect</span>
+          <span className="block font-futura font-bold text-neutral-400">&</span>
+          <span className="block font-futura font-bold">Spatial Thinker</span>
         </motion.h1>
 
         {/* Subheadline */}

@@ -29,7 +29,7 @@ export default function Header() {
           >
             <Image
               src="/images/logo/hero.jpg"
-              alt="Garis 2 Architect"
+              alt="Garis2Architect"
               width={100}
               height={40}
               className="h-10 w-auto"

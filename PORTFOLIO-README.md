@@ -1,4 +1,4 @@
-# Garis 2 Architect Portfolio
+# Garis2Architect Portfolio
 
 A modern, static architecture portfolio website built with Next.js, Tailwind CSS, and Framer Motion.
 

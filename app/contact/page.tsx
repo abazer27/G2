@@ -61,7 +61,7 @@ export default function ContactPage() {
 
   const generateWhatsAppURL = () => {
     // Format the message for WhatsApp
-    const whatsappMessage = `Hello! New contact form submission from Garis 2 Architect website:
+    const whatsappMessage = `Hello! New contact form submission from Garis2Architect website:
 
 *Contact Details:*
 Name: ${formData.name}
@@ -72,7 +72,7 @@ Phone: ${formData.phone}
 ${formData.message}
 
 ---
-Sent from Garis 2 Architect Contact Form Website.`;
+Sent from Garis2Architect Contact Form Website.`;
 
     const whatsappNumber = "6287856181415";
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;

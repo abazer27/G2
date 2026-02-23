@@ -54,14 +54,19 @@ export interface Service {
   icon: string;
 }
 
+export interface Milestone {
+  id: string;
+  year: string;
+  title: string;
+  description: string;
+}
+
 export interface AboutContent {
   hero: {
     title: string;
+    subtitle: string;
   };
-  story: {
-    title: string;
-    paragraphs: string[];
-  };
+  milestones: Milestone[];
   mission: {
     title: string;
     content: string;
